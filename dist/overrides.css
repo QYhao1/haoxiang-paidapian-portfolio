@@ -1,0 +1,1720 @@
+/* 页面微调：提高第二屏文字玻璃层透明度。 */
+html,
+body,
+button,
+input,
+textarea,
+select,
+.statement .statement-content h2 {
+  font-family: "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* 导航仅属于首页首屏，滚动时随页面自然离开。 */
+.site-header,
+.site-header.is-scrolled {
+  position: absolute;
+  top: 8px;
+  justify-content: flex-start;
+  gap: clamp(42px, 4vw, 50px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.site-header .desktop-nav {
+  margin-left: 0;
+  gap: clamp(32px, 3vw, 40px);
+}
+
+.statement .statement-content h2 span {
+  color: #ffffff;
+}
+
+.site-header .brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  line-height: 1;
+}
+
+.site-header .brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site-header .brand-avatar {
+  display: block;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 66%;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.22);
+}
+
+.site-header .brand-logo {
+  display: block;
+  width: clamp(88px, 7.5vw, 104px);
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.22));
+}
+
+@media (max-width: 620px) {
+  .site-header .brand-logo {
+    width: 80px;
+  }
+}
+
+.site-header .brand strong {
+  font-size: 15px;
+  font-weight: 680;
+  letter-spacing: -0.02em;
+}
+
+.site-header .brand small {
+  margin-top: 5px;
+  font-size: 7px;
+  font-weight: 550;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+
+.statement .statement-content {
+  width: min(88vw, 590px);
+  padding: 22px 28px 24px;
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(2, 7, 9, 0.16);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 20px 50px rgba(0, 0, 0, 0.16);
+}
+
+.statement .statement-content h2 {
+  font-size: clamp(30px, 4.1vw, 46px);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+}
+
+.statement .statement-content > p {
+  margin-top: 18px;
+  font-size: 14px;
+  letter-spacing: 0.015em;
+  color: rgba(245, 245, 247, 0.72);
+}
+
+@media (max-width: 620px) {
+  .statement .statement-content {
+    width: min(90vw, 460px);
+    padding: 20px 18px 22px;
+  }
+}
+
+/* 首页视频：按真实时长播放，并使用更柔和的交叉溶解。 */
+.hero .hero-video {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  transition: opacity 2.4s cubic-bezier(0.45, 0, 0.2, 1);
+}
+
+.hero .hero-video.is-active {
+  transform: none;
+}
+
+.hero .scroll-hint {
+  color: #ffffff;
+}
+
+/* 最终主题覆盖：第 2 至第 6 页统一为白色底片。 */
+body {
+  background: #ffffff;
+  color: #171719;
+}
+
+.portfolio-collections,
+.feature-wrap,
+.quote,
+.about,
+.contact,
+footer {
+  background: #ffffff;
+  color: #171719;
+}
+
+.collections-kicker,
+.collection-heading > p,
+.collection-meta > p,
+.collection-heading.collection-heading--compact > p {
+  color: rgba(23, 23, 25, 0.52);
+}
+
+.collections-intro > p:last-child,
+.collection-heading span,
+.collection-meta > span,
+.contact > p:not(.eyebrow),
+.about-copy > p:not(.eyebrow) {
+  color: rgba(23, 23, 25, 0.62);
+}
+
+.portfolio-collection {
+  border-top-color: rgba(23, 23, 25, 0.18);
+}
+
+.collection-card {
+  background: #eef0f1;
+}
+
+.quote {
+  background: #ffffff;
+}
+
+.quote blockquote {
+  text-shadow: none;
+}
+
+.quote .quote-by {
+  background: transparent;
+  color: rgba(23, 23, 25, 0.58);
+  text-shadow: none;
+}
+
+footer {
+  border-top-color: rgba(23, 23, 25, 0.16);
+  color: rgba(23, 23, 25, 0.52);
+}
+
+/* 末页联系入口：借鉴参考页的大留白和居中入口节奏，使用本站自己的文字与图形。 */
+.contact-hub {
+  min-height: 0;
+  padding: clamp(42px, 5vw, 72px) 28px clamp(56px, 6vw, 88px);
+  display: grid;
+  place-items: start center;
+  background: #ffffff;
+  color: #171719;
+}
+
+.contact-hub__inner {
+  width: min(100%, 1180px);
+  text-align: center;
+}
+
+.contact-hub__kicker {
+  margin: 10px 0 0;
+  color: rgba(23, 23, 25, 0.42);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.contact-hub h2 {
+  margin: 0;
+  font-size: clamp(32px, 3.4vw, 46px);
+  font-weight: 350;
+  letter-spacing: -0.055em;
+}
+
+.contact-hub__links {
+  margin: clamp(40px, 6vw, 72px) auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 6vw, 92px);
+}
+
+.contact-hub__item {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  min-width: 0;
+  color: #171719;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.contact-hub__item:hover,
+.contact-hub__item:focus-visible {
+  color: #171719;
+  opacity: 0.62;
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.contact-hub__symbol {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.contact-hub__symbol--douyin {
+  overflow: hidden;
+  border-color: #171719;
+  background: #171719;
+}
+
+.contact-hub__symbol--douyin img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 68%;
+}
+
+.contact-hub__symbol--qq {
+  border-radius: 17px;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.contact-hub__symbol--mail {
+  border-radius: 15px;
+  font-size: 28px;
+}
+
+.contact-hub__label {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.contact-hub__detail {
+  max-width: 100%;
+  margin-top: 7px;
+  overflow-wrap: anywhere;
+  color: rgba(23, 23, 25, 0.5);
+  font-size: 11px;
+  letter-spacing: 0.015em;
+}
+
+.site-footer {
+  padding: 22px clamp(20px, 4vw, 56px);
+}
+
+@media (max-width: 620px) {
+  .contact-hub {
+    min-height: auto;
+    padding: 56px 24px 72px;
+  }
+
+  .contact-hub__links {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    margin-top: 64px;
+  }
+
+  .contact-hub__symbol {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 12px;
+  }
+
+  .site-footer {
+    text-align: center;
+  }
+}
+
+/* 作品集灯箱：保留照片原比例，并在当前类别内前后浏览。 */
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.collection-card[role="button"] {
+  cursor: zoom-in;
+  outline: none;
+}
+
+.collection-card[role="button"]:focus-visible {
+  outline: 2px solid #171719;
+  outline-offset: 4px;
+}
+
+.portfolio-lightbox {
+  inset: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #ffffff;
+  color: #171719;
+  overflow: hidden;
+}
+
+@supports (height: 100dvh) {
+  .portfolio-lightbox {
+    height: 100dvh;
+  }
+}
+
+.portfolio-lightbox::backdrop {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.lightbox-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: clamp(52px, 6vw, 78px) clamp(56px, 7vw, 104px) clamp(24px, 3vw, 40px);
+  display: grid;
+  place-items: center;
+}
+
+.lightbox-figure {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 14px;
+  place-items: center;
+}
+
+.lightbox-image {
+  display: block;
+  max-width: min(88vw, 1600px);
+  max-height: calc(100vh - 126px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 20px 50px rgba(23, 23, 25, 0.18);
+}
+
+@supports (height: 100dvh) {
+  .lightbox-image {
+    max-height: calc(100dvh - 126px);
+  }
+}
+
+.lightbox-caption {
+  width: min(88vw, 1600px);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(23, 23, 25, 0.58);
+}
+
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(23, 23, 25, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.82);
+  color: #171719;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible,
+.lightbox-nav:hover,
+.lightbox-nav:focus-visible {
+  background: rgba(23, 23, 25, 0.08);
+  border-color: rgba(23, 23, 25, 0.55);
+  outline: none;
+}
+
+.lightbox-close {
+  top: 18px;
+  right: 18px;
+  font-size: 25px;
+  font-weight: 200;
+  line-height: 1;
+}
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  font-weight: 200;
+  line-height: 1;
+}
+
+.lightbox-nav--prev {
+  left: 18px;
+}
+
+.lightbox-nav--next {
+  right: 18px;
+}
+
+.lightbox-nav[hidden] {
+  display: none;
+}
+
+@media (max-width: 620px) {
+  .lightbox-stage {
+    padding: 56px 16px 20px;
+  }
+
+  .lightbox-image {
+    max-width: 94vw;
+    max-height: calc(100vh - 118px);
+  }
+
+  .lightbox-caption {
+    width: 94vw;
+  }
+
+  .lightbox-close,
+  .lightbox-nav {
+    width: 38px;
+    height: 38px;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .lightbox-nav--prev {
+    left: 8px;
+  }
+
+  .lightbox-nav--next {
+    right: 8px;
+  }
+}
+
+/* 合集标题区贴近区块顶部，并采用更克制的字号层级。 */
+.portfolio-collections {
+  padding-top: clamp(42px, 5vw, 64px);
+}
+
+.collections-intro {
+  margin: 0 auto clamp(44px, 6vw, 76px);
+}
+
+.collections-intro h2 {
+  margin: 10px 0 12px;
+  font-size: clamp(30px, 2.6vw, 34px);
+  font-weight: 300;
+  letter-spacing: -0.055em;
+}
+
+.collections-intro > p:last-child {
+  font-size: 12px;
+}
+
+.hero .hero-copy h1,
+.hero .hero-copy .proximity-letter {
+  color: #ffffff;
+}
+
+/* 取消各页面区块的入场动画，滚动时直接呈现内容。 */
+.reveal,
+.reveal.visible,
+.hero-item {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  animation: none;
+}
+
+/* 合集标题区贴近区块顶部，并采用更克制的字号层级。 */
+.portfolio-collections {
+  padding-top: clamp(42px, 5vw, 64px);
+}
+
+.collections-intro {
+  margin: 0 auto clamp(44px, 6vw, 76px);
+}
+
+.collections-intro h2 {
+  margin: 10px 0 12px;
+  font-size: clamp(30px, 2.6vw, 34px);
+  font-weight: 300;
+  letter-spacing: -0.055em;
+}
+
+.collections-intro > p:last-child {
+  font-size: 12px;
+}
+
+/* 全站内容底色统一为白色；首屏视频与作品图片作为影像内容保留。 */
+body,
+.portfolio-collections,
+.about,
+.contact,
+footer,
+.quote {
+  background: #ffffff;
+  color: #171719;
+}
+
+.portfolio-collections {
+  color: #171719;
+}
+
+.collections-kicker,
+.collection-heading > p,
+.collection-meta > p,
+.collection-heading.collection-heading--compact > p {
+  color: rgba(23, 23, 25, 0.52);
+}
+
+.collections-intro > p:last-child,
+.collection-heading span,
+.collection-meta > span {
+  color: rgba(23, 23, 25, 0.64);
+}
+
+.portfolio-collection {
+  border-top-color: rgba(23, 23, 25, 0.18);
+}
+
+.collection-card {
+  background: #eef0f1;
+}
+
+.quote {
+  background: #ffffff;
+  color: #171719;
+}
+
+.quote blockquote {
+  text-shadow: none;
+}
+
+.quote .quote-by {
+  background: transparent;
+  color: rgba(23, 23, 25, 0.58);
+  text-shadow: none;
+}
+
+.about {
+  color: #171719;
+}
+
+.contact > p:not(.eyebrow),
+.about-copy > p:not(.eyebrow) {
+  color: rgba(23, 23, 25, 0.62);
+}
+
+.contact-button {
+  border-color: rgba(23, 23, 25, 0.2);
+  background: rgba(255, 255, 255, 0.78);
+  color: #171719;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 10px 24px rgba(23, 23, 25, 0.1);
+}
+
+footer {
+  border-top-color: rgba(23, 23, 25, 0.16);
+  color: rgba(23, 23, 25, 0.52);
+}
+
+footer a:hover {
+  color: #171719;
+}
+
+/* 白色底片：页面置于浅灰浏览器底色之上，影像作为画布内的内容呈现。 */
+html {
+  background: #e9eaeb;
+}
+
+body {
+  background: #ffffff;
+  box-shadow: 0 0 0 3px #ffffff, 0 0 0 4px rgba(23, 23, 25, 0.08);
+}
+
+main,
+footer {
+  background: #ffffff;
+}
+
+/* 首屏之后的五个内容页面统一使用白色背景。 */
+.portfolio-collections,
+.feature-wrap,
+.quote,
+.about,
+.contact {
+  background: #ffffff;
+}
+
+@media (min-width: 621px) {
+  body {
+    margin: 4px;
+  }
+
+  .hero {
+    height: calc(100vh - 8px);
+    min-height: calc(100vh - 8px);
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.hero::after {
+  background: transparent;
+}
+
+.hero .hero-copy {
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: stretch;
+}
+
+.hero .hero-copy h1 {
+  font-family: "PingFang TC", "Hiragino Sans CNS", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  font-size: clamp(34px, 4.2vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.065em;
+}
+
+.hero .hero-copy h1[data-variable-proximity] {
+  cursor: default;
+  font-variation-settings: "wght" 700;
+  transform: skewX(-8deg);
+  transform-origin: center center;
+}
+
+.hero .hero-title-image {
+  display: block;
+  width: clamp(152px, 13.5vw, 192px);
+  max-width: 44vw;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.hero .hero-copy .proximity-letter {
+  --proximity: 0;
+  display: inline-block;
+  min-width: 0.9em;
+  transform: translateY(calc(var(--proximity) * -0.055em)) scale(calc(1 + var(--proximity) * 0.13));
+  transform-origin: center bottom;
+  font-weight: calc(700 + var(--proximity) * 220);
+  font-variation-settings: "wght" calc(700 + var(--proximity) * 220);
+  text-shadow: 0 calc(var(--proximity) * 0.12em) calc(var(--proximity) * 0.42em) rgba(255, 255, 255, calc(var(--proximity) * 0.32));
+  transition: transform 160ms ease-out, font-weight 160ms ease-out, text-shadow 160ms ease-out;
+  will-change: transform, font-weight;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-copy .proximity-letter {
+    transition: none;
+  }
+}
+
+/* 三类作品合集：以不同节奏的图像网格承载每一组叙事。 */
+.portfolio-collections {
+  padding: clamp(82px, 11vw, 148px) 0 0;
+  background: #050607;
+}
+
+.collections-intro {
+  max-width: 620px;
+  margin: 0 auto clamp(70px, 10vw, 132px);
+  text-align: center;
+}
+
+.collections-kicker,
+.collection-heading > p {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.collections-intro h2 {
+  margin: 14px 0 16px;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.075em;
+}
+
+.collections-intro > p:last-child {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.portfolio-collection {
+  display: grid;
+  grid-template-columns: minmax(150px, 18%) minmax(0, 82%);
+  grid-template-rows: auto;
+  align-items: start;
+  column-gap: clamp(24px, 4vw, 72px);
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-height: 100vh;
+  margin: 0;
+  padding: clamp(58px, 7vw, 112px) clamp(20px, 4.5vw, 76px);
+  overflow: visible;
+  border-top: 1px solid #d9d9da;
+  background: #ffffff;
+  color: #171719;
+}
+
+@supports (height: 100dvh) {
+  .portfolio-collection {
+    height: auto;
+    min-height: 100dvh;
+  }
+}
+
+.portfolio-collection + .portfolio-collection {
+  margin-top: 0;
+  border-top: clamp(12px, 1.4vw, 18px) solid #e4e4e6;
+}
+
+.collection-heading {
+  display: grid;
+  grid-template-columns: minmax(132px, 0.7fr) 2fr;
+  gap: 22px;
+  align-items: start;
+  margin-bottom: 30px;
+}
+
+.collection-heading h3 {
+  margin: 0;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 610;
+  line-height: 1;
+  letter-spacing: -0.065em;
+}
+
+.collection-heading span {
+  display: block;
+  margin-top: 11px;
+  color: rgba(255, 255, 255, 0.57);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.collection-heading.collection-heading--compact {
+  display: flex;
+  position: sticky;
+  top: 28px;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0 clamp(18px, 2vw, 34px) 0 0;
+  border-right: 1px solid #dddddf;
+  background: #ffffff;
+}
+
+.portfolio-collection .collection-meta > p {
+  font-size: clamp(20px, 2vw, 32px);
+  font-weight: 520;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: #171719;
+}
+
+.portfolio-collection .collection-meta > span {
+  max-width: 220px;
+  margin-top: 16px;
+  font-size: clamp(10px, 0.9vw, 12px);
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  color: rgba(23, 23, 25, 0.62);
+}
+
+.portfolio-collection .collection-meta > .collection-meta__english {
+  margin-top: 8px;
+  color: rgba(23, 23, 25, 0.42);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+}
+
+.portfolio-collection .collection-meta > .collection-meta__english + span {
+  margin-top: 8px;
+}
+
+.collection-meta > p,
+.collection-heading.collection-heading--compact > p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.collection-meta > span {
+  margin-top: 9px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 10px;
+}
+
+.collection-grid {
+  display: block;
+  column-count: 3;
+  column-gap: clamp(14px, 1.7vw, 26px);
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  padding: 0;
+  overflow: visible;
+  background: #ffffff;
+}
+
+.collection-grid--15 {
+  column-count: 4;
+}
+
+.collection-grid--27 {
+  column-count: 4;
+}
+
+.collection-grid--24 {
+  column-count: 4;
+}
+
+.collection-grid > .collection-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 clamp(14px, 1.7vw, 26px);
+  min-width: 0;
+  min-height: 0;
+  vertical-align: top;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  overflow: hidden;
+  padding: clamp(6px, 0.7vw, 10px);
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgba(23, 23, 25, 0.1), 0 8px 24px rgba(23, 23, 25, 0.055);
+}
+
+.collection-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+.collection-copyright {
+  display: grid;
+  gap: 4px;
+  margin: clamp(10px, 1.4vw, 18px) 0 0;
+  color: rgba(23, 23, 25, 0.5);
+  font-size: 10px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.collection-copyright span:last-child {
+  color: rgba(23, 23, 25, 0.38);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 1100px) {
+  .collection-grid--27,
+  .collection-grid--24 {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 820px) {
+  .portfolio-collections {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .portfolio-collection {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 28px;
+    padding: 44px 18px 58px;
+  }
+
+  .collection-heading.collection-heading--compact {
+    position: static;
+    padding: 0 0 22px;
+    border-right: 0;
+    border-bottom: 1px solid #dddddf;
+  }
+
+  .portfolio-collection .collection-meta > p {
+    font-size: clamp(22px, 7vw, 30px);
+  }
+
+  .portfolio-collection .collection-meta > span {
+    margin-top: 8px;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .collection-grid--15,
+  .collection-grid--27 {
+    column-count: 2;
+  }
+
+  .collection-grid--24 {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-grid--15,
+  .collection-grid--27,
+  .collection-grid--24 {
+    column-count: 1;
+  }
+}
+
+/* 第二页：不再漂浮的全量摄影相册，按原始画幅瀑布流展示。 */
+.all-photo-album {
+  padding: clamp(82px, 11vw, 148px) clamp(18px, 5vw, 72px);
+  background: #050607;
+}
+
+.album-heading {
+  max-width: 1320px;
+  margin: 0 auto clamp(38px, 5vw, 66px);
+}
+
+.album-heading > p {
+  margin: 0 0 13px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+}
+
+.album-heading h2 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 620;
+  line-height: 0.98;
+  letter-spacing: -0.075em;
+}
+
+.album-heading span {
+  display: block;
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+.photo-album {
+  max-width: 1320px;
+  margin: 0 auto;
+  column-count: 4;
+  column-gap: 10px;
+}
+
+.photo-album-item {
+  display: block;
+  margin: 0 0 10px;
+  break-inside: avoid;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #111416;
+}
+
+.photo-album-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #111416;
+}
+
+@media (max-width: 900px) {
+  .photo-album {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 620px) {
+  .all-photo-album {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .album-heading {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .photo-album {
+    column-count: 2;
+    column-gap: 7px;
+  }
+
+  .photo-album-item {
+    margin-bottom: 7px;
+    border-radius: 3px;
+  }
+}
+
+/* 相册总览固定为单屏缩略图墙；完整大图仍在下方分类合集展示。 */
+.all-photo-album {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 0;
+  padding-top: clamp(48px, 6vh, 76px);
+  padding-bottom: clamp(28px, 4vh, 52px);
+  overflow: hidden;
+}
+
+@supports (height: 100dvh) {
+  .all-photo-album {
+    height: 100dvh;
+  }
+}
+
+.album-heading {
+  flex: 0 0 auto;
+  margin-bottom: clamp(20px, 3vh, 34px);
+}
+
+.album-heading h2 {
+  font-size: clamp(34px, 4.4vw, 58px);
+}
+
+.album-heading span {
+  margin-top: 9px;
+  font-size: 12px;
+}
+
+.photo-album {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+  grid-auto-flow: row;
+  gap: 4px;
+  min-height: 0;
+  column-count: unset;
+  column-gap: 0;
+}
+
+.photo-album-item {
+  min-height: 0;
+  margin: 0;
+  border-radius: 3px;
+}
+
+.photo-album-item img {
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 620px) {
+  .all-photo-album {
+    padding-top: 36px;
+    padding-bottom: 20px;
+  }
+
+  .album-heading {
+    margin-bottom: 18px;
+  }
+
+  .album-heading h2 {
+    font-size: 34px;
+  }
+
+  .album-heading > p,
+  .album-heading span {
+    font-size: 9px;
+  }
+
+  .photo-album {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(14, minmax(0, 1fr));
+    gap: 3px;
+  }
+}
+
+.hero .hero-bottom-description {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 54px;
+  width: min(88vw, 520px);
+  margin: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.38);
+}
+
+.hero .hero-video-meta {
+  padding: 9px 11px;
+}
+
+@media (max-width: 620px) {
+  .hero .hero-copy h1 {
+    font-size: clamp(32px, 9vw, 42px);
+  }
+
+  .hero .hero-bottom-description {
+    bottom: 58px;
+    width: min(86vw, 360px);
+    font-size: 12px;
+  }
+}
+
+.hero-video-progress i,
+.hero-video-progress i.is-active {
+  animation: none;
+  transform-origin: left;
+}
+
+.hero-video-progress i.is-active {
+  transform: scaleX(0.02);
+}
+
+/* 更小的照片卡片，让同一视口内呈现更多影像。 */
+.drift-column {
+  width: 142px;
+  flex-basis: 142px;
+  padding: 5px;
+}
+
+.drift-tile {
+  width: 132px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.drift-tile img {
+  height: auto;
+  object-fit: contain;
+}
+
+.drift-plane {
+  opacity: 0;
+  transition: transform 0.25s ease-out, opacity 0.24s ease-out;
+}
+
+.drift-plane.is-ready {
+  opacity: 1;
+}
+
+/* 第三屏文案直接浮于照片上，取消整块玻璃文本框。 */
+.feature-card .feature-caption {
+  left: 30px;
+  right: 30px;
+  bottom: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.feature-card .feature-caption h2 {
+  max-width: 620px;
+  font-size: clamp(19px, 2.1vw, 25px);
+  color: #ffffff;
+  font-weight: 200;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.58);
+}
+
+.feature-card {
+  height: auto;
+  background: none;
+}
+
+.feature-card::before {
+  display: none;
+}
+
+.feature-card .feature-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 620px) {
+  .feature-card .feature-caption {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .feature-card .feature-caption h2 {
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 620px) {
+  .drift-column {
+    width: 122px;
+    flex-basis: 122px;
+  }
+
+  .drift-tile {
+    width: 112px;
+    height: auto;
+  }
+}
+
+/* 引语页使用桂林全景，并保留足够的文字对比度。 */
+/* quote background revision */
+.quote {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(4, 10, 12, 0.22), rgba(4, 10, 12, 0.62)),
+    url("assets/DSC08247 全景.jpg") center / cover no-repeat;
+  color: #fff;
+}
+
+.quote blockquote {
+  position: relative;
+  z-index: 1;
+  max-width: 736px;
+  margin-top: 22px;
+  font-size: clamp(22px, 2.42vw, 28px);
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.58);
+}
+
+.quote .quote-by {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-top: 22px;
+  padding: 6px 14px;
+  border-radius: 22px;
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 11px;
+  font-weight: 100;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 第五页使用原图比例，不裁切；仅第二页浮动墙保留悬停动效。 */
+.work-card,
+.work-card-large {
+  height: auto;
+  background: none;
+}
+
+.work-card::before,
+.work-card::after {
+  display: none;
+}
+
+.work-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.work-card:nth-child(2),
+.work-card:nth-child(3) {
+  aspect-ratio: 1.36;
+  overflow: hidden;
+}
+
+.work-card:nth-child(2) img,
+.work-card:nth-child(3) img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-card:hover::before,
+.work-card:hover::before {
+  transform: none;
+}
+
+/* 第二页采用直角液态玻璃层，保留背景影像的流动感。 */
+.statement .statement-content {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.025) 48%, rgba(8, 16, 20, 0.18)),
+    rgba(8, 14, 17, 0.2);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+  backdrop-filter: blur(22px) saturate(145%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), inset 0 -1px 0 rgba(255, 255, 255, 0.06), 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.statement .statement-content h2 {
+  font-size: clamp(26px, 2.97vw, 32px);
+  font-weight: 300;
+}
+
+.statement .statement-content > p {
+  font-weight: 200;
+}
+
+.feature-card {
+  border-radius: 0;
+}
+
+.contact-button {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 54px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(220, 232, 238, 0.56));
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* 倒数第二页：以原始 3:2 比例展示影像，不将照片裁切为背景。 */
+.quote.quote {
+  padding: clamp(48px, 7vw, 104px) clamp(16px, 4vw, 56px) clamp(64px, 8vw, 120px);
+  background: #ffffff;
+  color: #171719;
+}
+
+.quote.quote .quote-figure {
+  position: relative;
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.quote.quote .quote-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #f2f3f2;
+}
+
+.quote.quote .quote-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  padding: clamp(24px, 5vw, 72px);
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(4, 10, 12, 0.14), rgba(4, 10, 12, 0.32));
+}
+
+.quote.quote .quote-overlay blockquote {
+  max-width: 736px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: 400;
+  line-height: 1.35;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.58);
+}
+
+.quote.quote .quote-overlay .quote-by {
+  display: block;
+  margin: 14px auto 0;
+  padding: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.86);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.quote.quote .quote-copyright {
+  position: absolute;
+  z-index: 2;
+  right: 24px;
+  bottom: 20px;
+  left: 24px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.54);
+}
+
+/* 取消滚动联动和进入视口的动效。 */
+html {
+  scroll-behavior: auto;
+}
+
+.reveal,
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* 仅为首页向下提示保留箭头引导；其余滚动与入场动效继续关闭。 */
+@keyframes scroll-hint-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.hero .scroll-hint span {
+  display: inline-block;
+  animation: scroll-hint-bounce 1.8s ease-in-out infinite;
+}
+
+/* 作品保持原始比例，并以统一的轻量阴影从白色页面中分离出来。 */
+.collection-grid > .collection-card,
+.feature-card,
+.quote.quote .quote-figure {
+  box-shadow: 0 14px 34px rgba(23, 23, 25, 0.16);
+}
+
+.site-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+}
+
+.site-footer > span:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.site-footer__copyright {
+  grid-column: 2;
+  grid-row: 1;
+  color: rgba(23, 23, 25, 0.5);
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .site-footer > span:nth-child(2),
+  .site-footer__copyright {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: center;
+  }
+
+  .site-footer__copyright {
+    display: block;
+    margin-top: 0;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .collection-grid > .collection-card {
+    position: relative;
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease;
+  }
+
+  .collection-grid > .collection-card img {
+    transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .collection-grid > .collection-card::after {
+    content: '⌕';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    background: rgba(10, 11, 12, 0.46);
+    color: #ffffff;
+    font-size: 19px;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.88);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .collection-grid > .collection-card:hover,
+  .collection-grid > .collection-card:focus-visible {
+    z-index: 2;
+    box-shadow: 0 20px 44px rgba(23, 23, 25, 0.2);
+  }
+
+  .collection-grid > .collection-card:hover img,
+  .collection-grid > .collection-card:focus-visible img {
+    transform: scale(1.025);
+  }
+
+  .collection-grid > .collection-card:hover::after,
+  .collection-grid > .collection-card:focus-visible::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .scroll-hint span {
+    animation: none;
+  }
+
+  .collection-grid > .collection-card,
+  .collection-grid > .collection-card img,
+  .collection-grid > .collection-card::after {
+    transition: none;
+  }
+
+  .collection-grid > .collection-card:hover img,
+  .collection-grid > .collection-card:focus-visible img {
+    transform: none;
+  }
+}
+
+/* 首页背景视频：源片为 2.39:1，舞台以 cover 居中铺满不同视口。 */
+.hero {
+  background: #000;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+@supports (height: 100dvh) {
+  .hero {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+}
+
+.hero .hero-video-stage {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  transform: none;
+  background: #000;
+}
+
+.hero .hero-video {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: none;
+}
+
+.hero .hero-video.is-active {
+  transform: none;
+}
+
+/* 最终主题覆盖：第 2 至第 6 页统一为白色底片。 */
+body {
+  background: #ffffff;
+  color: #171719;
+}
+
+/* 合集标题区贴近区块顶部，并采用更克制的字号层级。 */
+.portfolio-collections {
+  padding-top: clamp(42px, 5vw, 64px);
+}
+
+.collections-intro {
+  margin: 0 auto clamp(44px, 6vw, 76px);
+}
+
+.collections-intro h2 {
+  margin: 10px 0 12px;
+  font-size: clamp(30px, 2.6vw, 34px);
+  font-weight: 300;
+  letter-spacing: -0.055em;
+}
+
+.collections-intro > p:last-child {
+  font-size: 12px;
+}
+
+.portfolio-collections,
+.feature-wrap,
+.quote,
+.about,
+.contact,
+footer {
+  background: #ffffff;
+  color: #171719;
+}
+
+.collections-kicker,
+.collection-heading > p,
+.collection-meta > p,
+.collection-heading.collection-heading--compact > p {
+  color: rgba(23, 23, 25, 0.52);
+}
+
+.collections-intro > p:last-child,
+.collection-heading span,
+.collection-meta > span,
+.contact > p:not(.eyebrow),
+.about-copy > p:not(.eyebrow) {
+  color: rgba(23, 23, 25, 0.62);
+}
+
+.portfolio-collection {
+  border-top-color: rgba(23, 23, 25, 0.18);
+}
+
+.collection-card {
+  background: #eef0f1;
+}
+
+.quote {
+  background: #ffffff;
+}
+
+.quote blockquote {
+  text-shadow: none;
+}
+
+.quote .quote-by {
+  background: transparent;
+  color: rgba(23, 23, 25, 0.58);
+  text-shadow: none;
+}
+
+footer {
+  border-top-color: rgba(23, 23, 25, 0.16);
+  color: rgba(23, 23, 25, 0.52);
+}
