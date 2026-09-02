@@ -138,6 +138,22 @@ select,
   color: #ffffff;
 }
 
+/* 最终移动端覆盖：三列作品预览与横向联系入口。 */
+@media (max-width: 620px) {
+  .portfolio-collection { row-gap: 20px; padding: 38px 12px 48px; }
+  .collection-heading.collection-heading--compact { padding-bottom: 16px; }
+  .collection-grid--15, .collection-grid--27, .collection-grid--24 { column-count: 3; column-gap: 8px; }
+  .collection-grid > .collection-card { margin-bottom: 8px; padding: 3px; box-shadow: 0 5px 14px rgba(23, 23, 25, 0.12); }
+  .collection-copyright { margin-top: 12px; }
+  .contact-hub { padding: 52px 12px 56px; }
+  .contact-hub__links { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 34px; }
+  .contact-hub__symbol { width: 42px; height: 42px; margin-bottom: 8px; border-width: 1.5px; }
+  .contact-hub__symbol--qq { border-radius: 13px; font-size: 23px; }
+  .contact-hub__symbol--mail { border-radius: 12px; font-size: 21px; }
+  .contact-hub__label { font-size: 12px; }
+  .contact-hub__detail { margin-top: 5px; font-size: 9px; line-height: 1.3; }
+}
+
 /* 最终主题覆盖：第 2 至第 6 页统一为白色底片。 */
 body {
   background: #ffffff;
@@ -194,6 +210,72 @@ footer {
 footer {
   border-top-color: rgba(23, 23, 25, 0.16);
   color: rgba(23, 23, 25, 0.52);
+}
+
+/* 最终移动端覆盖：三列作品预览与横向联系入口。 */
+@media (max-width: 620px) {
+  .portfolio-collection {
+    row-gap: 20px;
+    padding: 38px 12px 48px;
+  }
+
+  .collection-heading.collection-heading--compact {
+    padding-bottom: 16px;
+  }
+
+  .collection-grid--15,
+  .collection-grid--27,
+  .collection-grid--24 {
+    column-count: 3;
+    column-gap: 8px;
+  }
+
+  .collection-grid > .collection-card {
+    margin-bottom: 8px;
+    padding: 3px;
+    box-shadow: 0 5px 14px rgba(23, 23, 25, 0.12);
+  }
+
+  .collection-copyright {
+    margin-top: 12px;
+  }
+
+  .contact-hub {
+    padding: 52px 12px 56px;
+  }
+
+  .contact-hub__links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 34px;
+  }
+
+  .contact-hub__symbol {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 8px;
+    border-width: 1.5px;
+  }
+
+  .contact-hub__symbol--qq {
+    border-radius: 13px;
+    font-size: 23px;
+  }
+
+  .contact-hub__symbol--mail {
+    border-radius: 12px;
+    font-size: 21px;
+  }
+
+  .contact-hub__label {
+    font-size: 12px;
+  }
+
+  .contact-hub__detail {
+    margin-top: 5px;
+    font-size: 9px;
+    line-height: 1.3;
+  }
 }
 
 /* 移动端作品集和联系方式：三列预览优先，保持原始画幅。 */
@@ -1705,6 +1787,22 @@ html {
 
 .hero .hero-video.is-active {
   transform: none;
+}
+
+/* 最终移动端覆盖：三列作品预览与横向联系入口。 */
+@media (max-width: 620px) {
+  .portfolio-collection { row-gap: 20px; padding: 38px 12px 48px; }
+  .collection-heading.collection-heading--compact { padding-bottom: 16px; }
+  .collection-grid--15, .collection-grid--27, .collection-grid--24 { column-count: 3; column-gap: 8px; }
+  .collection-grid > .collection-card { margin-bottom: 8px; padding: 3px; box-shadow: 0 5px 14px rgba(23, 23, 25, 0.12); }
+  .collection-copyright { margin-top: 12px; }
+  .contact-hub { padding: 52px 12px 56px; }
+  .contact-hub__links { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 34px; }
+  .contact-hub__symbol { width: 42px; height: 42px; margin-bottom: 8px; border-width: 1.5px; }
+  .contact-hub__symbol--qq { border-radius: 13px; font-size: 23px; }
+  .contact-hub__symbol--mail { border-radius: 12px; font-size: 21px; }
+  .contact-hub__label { font-size: 12px; }
+  .contact-hub__detail { margin-top: 5px; font-size: 9px; line-height: 1.3; }
 }
 
 /* 最终主题覆盖：第 2 至第 6 页统一为白色底片。 */
