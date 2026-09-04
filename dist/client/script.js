@@ -29,6 +29,98 @@ if (heroVideo) {
   syncHeroPlayback();
 }
 
+// 合集选择器：使用现有作品生成照片墙封面，点击后再展开对应的完整作品。
+const collectionCarousel = document.querySelector('[data-collection-carousel]');
+
+if (collectionCarousel) {
+  const carouselViewport = collectionCarousel.querySelector('[data-collection-carousel-viewport]');
+  const previousCollection = collectionCarousel.querySelector('[data-collection-prev]');
+  const nextCollection = collectionCarousel.querySelector('[data-collection-next]');
+  const collections = [...document.querySelectorAll('[data-portfolio-collection]')];
+  const coverImages = [
+    { src: 'assets/web/非遗类别/DSC00028-已增强-NR.jpg', position: 'center center' },
+    { src: 'assets/web/自然风光/DSC07911.jpg', position: 'center 54%' },
+    { src: 'assets/web/城市风光/DSC07619.jpg', position: 'center 58%' },
+  ];
+  let activeCollectionIndex = 0;
+
+  const collectionData = collections.map((collection, index) => {
+    const meta = collection.querySelector('.collection-meta');
+    const title = meta?.querySelector('p')?.textContent.trim() || '摄影作品';
+    const english = meta?.querySelector('.collection-meta__english')?.textContent.trim() || 'COLLECTION';
+    const description = meta?.querySelector('.collection-meta__english + span')?.textContent.trim() || '';
+    const images = [...collection.querySelectorAll('.collection-card img')];
+    return { index, collection, title, english, description, images, cover: coverImages[index] };
+  });
+
+  const createCollectionCover = (data, isActive) => {
+    const card = document.createElement('button');
+    card.className = `collection-cover ${isActive ? 'collection-cover--active' : 'collection-cover--side'}`;
+    card.type = 'button';
+    card.setAttribute('aria-label', `点击进入${data.title}合集，共${data.images.length}张作品`);
+
+    const coverImage = document.createElement('img');
+    coverImage.className = 'collection-cover__image';
+    coverImage.src = data.cover?.src || data.images[0]?.currentSrc || data.images[0]?.src;
+    coverImage.alt = '';
+    coverImage.decoding = 'async';
+    coverImage.loading = isActive ? 'eager' : 'lazy';
+    coverImage.style.objectPosition = data.cover?.position || 'center';
+
+    const overlay = document.createElement('span');
+    overlay.className = 'collection-cover__overlay';
+    const english = document.createElement('span');
+    english.className = 'collection-cover__english';
+    english.textContent = data.english;
+    const title = document.createElement('strong');
+    title.textContent = data.title;
+    const description = document.createElement('span');
+    description.className = 'collection-cover__description';
+    description.textContent = data.description;
+    const open = document.createElement('span');
+    open.className = 'collection-cover__open';
+    const openEnglish = document.createElement('span');
+    openEnglish.className = 'collection-cover__open-english';
+    openEnglish.textContent = 'VIEW COLLECTION';
+    const openLabel = document.createElement('span');
+    openLabel.className = 'collection-cover__open-label';
+    openLabel.textContent = '点击进入合集';
+    open.append(openEnglish, openLabel);
+    overlay.append(english, title, description, open);
+    card.append(coverImage, overlay);
+    card.addEventListener('click', () => {
+      window.location.href = `collection.html?collection=${encodeURIComponent(data.index)}`;
+    });
+    return card;
+  };
+
+  const renderCollectionCarousel = () => {
+    carouselViewport.replaceChildren();
+    if (!collectionData.length) return;
+
+    const track = document.createElement('div');
+    track.className = 'collection-carousel__track';
+    [-1, 0, 1].forEach((offset) => {
+      const index = (activeCollectionIndex + offset + collectionData.length) % collectionData.length;
+      track.append(createCollectionCover(collectionData[index], offset === 0));
+    });
+    carouselViewport.append(track);
+  };
+
+  const moveCollection = (direction) => {
+    activeCollectionIndex = (activeCollectionIndex + direction + collectionData.length) % collectionData.length;
+    renderCollectionCarousel();
+  };
+
+  previousCollection?.addEventListener('click', () => moveCollection(-1));
+  nextCollection?.addEventListener('click', () => moveCollection(1));
+  collectionCarousel.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') moveCollection(-1);
+    if (event.key === 'ArrowRight') moveCollection(1);
+  });
+  renderCollectionCarousel();
+}
+
 // 作品集灯箱：点击或键盘打开单张照片，并在当前类别内前后浏览。
 const lightbox = document.querySelector('[data-lightbox]');
 

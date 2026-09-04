@@ -7,6 +7,7 @@
     <title>豪想拍大片｜摄影作品集</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="overrides.css?v=20260902-mobile-video" />
+    <link rel="stylesheet" href="carousel-final.css?v=20260903-fixed-cta" />
     <link rel="stylesheet" href="hero-video.css?v=20260902-performance" />
   </head>
   <body>
@@ -19,7 +20,7 @@
     <main id="top">
       <section class="hero">
         <div class="hero-video-stage" aria-hidden="true">
-          <video class="hero-video" muted playsinline loop preload="auto" fetchpriority="high" poster="assets/videos/homepage-reel-poster.jpg" src="assets/videos/homepage-reel-v3-web.mp4"></video>
+          <video class="hero-video" muted playsinline loop preload="auto" fetchpriority="high" poster="assets/videos/homepage-reel-poster.jpg" src="assets/videos/homepage-reel-final-web.m4v"></video>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-copy hero-item"><img class="hero-title-image" src="assets/zhumeng-qianxing-title-v3.png?v=20260831-v3" alt="逐梦前行" /></div>
@@ -32,8 +33,15 @@
           <h2 id="collections-title">也许你会喜欢</h2>
           <p>以影像收藏自然的宏大与细微，这份回忆只属于你。</p>
         </div>
+        <section class="collection-carousel" data-collection-carousel aria-label="作品合集选择器">
+          <div class="collection-carousel__viewport" data-collection-carousel-viewport></div>
+          <div class="collection-carousel__controls" aria-label="切换作品合集">
+            <button class="collection-carousel__arrow collection-carousel__arrow--prev" type="button" data-collection-prev aria-label="查看上一个合集"><span class="collection-carousel__arrow-icon" aria-hidden="true">←</span></button>
+            <button class="collection-carousel__arrow collection-carousel__arrow--next" type="button" data-collection-next aria-label="查看下一个合集"><span class="collection-carousel__arrow-icon" aria-hidden="true">→</span></button>
+          </div>
+        </section>
 
-        <article class="portfolio-collection">
+        <article class="portfolio-collection" data-portfolio-collection>
           <header class="collection-heading collection-heading--compact"><div class="collection-meta"><p>非遗纪实</p><span class="collection-meta__english" lang="en">INTANGIBLE CULTURAL HERITAGE</span><span>广西宾阳千年炮龙节</span></div></header>
           <div class="collection-grid collection-grid--15" role="group" aria-label="非遗纪实作品集">
             <figure class="collection-card"><img src="assets/web/非遗类别/DSC000228-已增强-NR.jpg" alt="非遗纪实作品 01" loading="lazy" decoding="async" /></figure>
@@ -55,7 +63,7 @@
           <p class="collection-copyright"><span>© 2026 豪想拍大片</span><span lang="en">ALL RIGHTS RESERVED</span></p>
         </article>
 
-        <article class="portfolio-collection">
+        <article class="portfolio-collection" data-portfolio-collection>
           <header class="collection-heading collection-heading--compact"><div class="collection-meta"><p>自然风光</p><span class="collection-meta__english" lang="en">NATURE &amp; LANDSCAPE</span><span>每个镜头的后面都有独一无二的故事</span></div></header>
           <div class="collection-grid collection-grid--27" role="group" aria-label="自然风光作品集">
             <figure class="collection-card"><img src="assets/web/自然风光/DJI_0888-已增强-NR.jpg" alt="自然风光作品 01" loading="lazy" decoding="async" /></figure>
@@ -89,7 +97,7 @@
           <p class="collection-copyright"><span>© 2026 豪想拍大片</span><span lang="en">ALL RIGHTS RESERVED</span></p>
         </article>
 
-        <article class="portfolio-collection">
+        <article class="portfolio-collection" data-portfolio-collection>
           <header class="collection-heading collection-heading--compact"><div class="collection-meta"><p>城市风光</p><span class="collection-meta__english" lang="en">CITYSCAPES</span><span>城市的光线、秩序与呼吸</span></div></header>
           <div class="collection-grid collection-grid--24" role="group" aria-label="城市风光作品集">
             <figure class="collection-card"><img src="assets/web/城市风光/DJI_0113 全景-恢复的.jpg" alt="城市风光作品 01" loading="lazy" decoding="async" /></figure>
@@ -158,6 +166,6 @@
         <button class="lightbox-nav lightbox-nav--next" type="button" data-lightbox-next aria-label="查看下一张">›</button>
       </div>
     </dialog>
-    <script src="script.js?v=20260902-performance"></script>
+    <script src="script.js?v=20260903-minimal-controls"></script>
   </body>
 </html>

@@ -212,6 +212,346 @@ footer {
   color: rgba(23, 23, 25, 0.52);
 }
 
+/* 三卡合集轮播：中间主卡与两侧预览同时呈现。 */
+.collection-carousel {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: none;
+  overflow: hidden;
+  margin-bottom: clamp(58px, 8vw, 104px);
+}
+
+.collection-carousel__viewport {
+  overflow: hidden;
+  padding: 14px 0 44px;
+}
+
+.collection-carousel__track {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(420px, 1.3fr) minmax(260px, 0.82fr);
+  align-items: center;
+  gap: clamp(16px, 2vw, 32px);
+  width: 115%;
+  margin-left: -7.5%;
+}
+
+.collection-cover {
+  z-index: 0;
+  min-height: 0;
+  height: clamp(230px, 22vw, 320px);
+  box-shadow: 0 12px 30px rgba(23, 23, 25, 0.12);
+}
+
+.collection-cover--active {
+  z-index: 1;
+  height: clamp(300px, 31vw, 430px);
+  box-shadow: 0 20px 48px rgba(23, 23, 25, 0.2);
+}
+
+.collection-cover--side {
+  opacity: 0.94;
+}
+
+.collection-cover__mosaic {
+  min-height: 0;
+}
+
+.collection-cover--side .collection-cover__overlay {
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  gap: 6px;
+}
+
+.collection-cover--side .collection-cover__overlay strong {
+  font-size: clamp(24px, 2.5vw, 34px);
+}
+
+.collection-cover--side .collection-cover__description {
+  display: none;
+}
+
+.collection-cover__open {
+  width: fit-content;
+  margin-top: 8px;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #171719;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.collection-cover:hover .collection-cover__open,
+.collection-cover:focus-visible .collection-cover__open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.collection-carousel__controls {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(62vw, 700px);
+  margin: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.collection-carousel__arrow {
+  position: relative;
+  z-index: 21;
+  width: 54px;
+  height: 54px;
+  border: 0;
+  background: #171719;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  pointer-events: auto;
+  font-size: 25px;
+}
+
+.collection-carousel__arrow:hover {
+  background: #ffffff;
+  color: #171719;
+}
+
+.collection-carousel__count {
+  z-index: 21;
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  width: max-content;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 760px) {
+  .collection-carousel__track {
+    width: 100%;
+    margin-left: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .collection-cover--side {
+    display: none;
+  }
+
+  .collection-cover--active {
+    height: min(112vw, 490px);
+  }
+
+  .collection-carousel__controls {
+    width: calc(100% - 30px);
+  }
+
+  .collection-carousel__arrow {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* 作品合集选择器：以自有照片组成可切换的封面墙，完整作品按需展开。 */
+.collection-carousel {
+  width: min(100%, 1120px);
+  margin: 0 auto clamp(54px, 7vw, 96px);
+  color: #171719;
+}
+
+.collection-carousel__viewport {
+  min-width: 0;
+}
+
+.collection-cover {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: clamp(380px, 51vw, 600px);
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #161719;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+
+.collection-cover:hover,
+.collection-cover:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(23, 23, 25, 0.22);
+}
+
+.collection-cover:focus-visible,
+.collection-carousel__arrow:focus-visible,
+.collection-back:focus-visible {
+  outline: 2px solid #171719;
+  outline-offset: 4px;
+}
+
+.collection-cover__mosaic {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr 0.8fr;
+  grid-template-rows: 1fr 0.78fr;
+  grid-template-areas:
+    "one two three"
+    "one four five";
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  gap: 4px;
+  background: #ffffff;
+}
+
+.collection-cover__tile {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  background: #252629;
+}
+
+.collection-cover__tile--1 { grid-area: one; }
+.collection-cover__tile--2 { grid-area: two; }
+.collection-cover__tile--3 { grid-area: three; }
+.collection-cover__tile--4 { grid-area: four; }
+.collection-cover__tile--5 { grid-area: five; }
+
+.collection-cover__tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(.2,.7,.2,1);
+}
+
+.collection-cover:hover .collection-cover__tile img,
+.collection-cover:focus-visible .collection-cover__tile img {
+  transform: scale(1.045);
+}
+
+.collection-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 30%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+}
+
+.collection-cover__overlay {
+  display: grid;
+  position: absolute;
+  z-index: 1;
+  right: clamp(24px, 4vw, 54px);
+  bottom: clamp(24px, 4vw, 46px);
+  left: clamp(24px, 4vw, 54px);
+  gap: 8px;
+}
+
+.collection-cover__english,
+.collection-cover__open {
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+}
+
+.collection-cover__english { opacity: 0.72; }
+
+.collection-cover__overlay strong {
+  font-size: clamp(32px, 4.6vw, 58px);
+  font-weight: 420;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.collection-cover__description {
+  max-width: 32em;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.collection-cover__open { margin-top: 10px; }
+
+.collection-carousel__controls {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  width: min(100%, 360px);
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.collection-carousel__arrow {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(23, 23, 25, 0.24);
+  border-radius: 50%;
+  background: transparent;
+  color: #171719;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.collection-carousel__arrow:hover { background: #171719; color: #ffffff; }
+
+.collection-carousel__count {
+  margin: 0;
+  color: rgba(23, 23, 25, 0.52);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+}
+
+.portfolio-collection[data-portfolio-collection] {
+  display: none;
+  min-height: 0;
+}
+
+.portfolio-collection[data-portfolio-collection].is-open {
+  display: grid;
+}
+
+.collection-back {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(23, 23, 25, 0.62);
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.collection-back:hover { color: #171719; }
+
+@media (max-width: 620px) {
+  .collection-carousel { margin-bottom: 42px; }
+  .collection-cover { min-height: 440px; }
+  .collection-cover__mosaic {
+    grid-template-columns: 1.08fr 0.92fr;
+    grid-template-rows: 1.2fr 0.8fr 0.74fr;
+    grid-template-areas:
+      "one two"
+      "one three"
+      "four five";
+  }
+  .collection-cover__overlay { right: 22px; bottom: 24px; left: 22px; }
+  .collection-cover__description { font-size: 11px; }
+  .collection-cover__open { margin-top: 6px; }
+  .collection-carousel__controls { margin-top: 14px; }
+  .portfolio-collection[data-portfolio-collection].is-open { padding-top: 32px; }
+}
+
 /* 最终移动端覆盖：三列作品预览与横向联系入口。 */
 @media (max-width: 620px) {
   .portfolio-collection {

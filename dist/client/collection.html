@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="豪想拍大片｜摄影作品集" />
+    <title>作品集｜豪想拍大片</title>
+    <link rel="stylesheet" href="collection-viewer.css?v=20260903" />
+  </head>
+  <body>
+    <header class="viewer-header">
+      <a class="viewer-brand" href="index.html#works" aria-label="返回作品合集"><img src="assets/haoxiangpaidapian-logo-pai-lightning-v7.png?v=20260831-v7" alt="豪想拍大片" /></a>
+      <a class="viewer-back" href="index.html#works">← 返回全部合集</a>
+    </header>
+    <main class="viewer-main">
+      <p class="viewer-kicker" data-viewer-english></p>
+      <h1 data-viewer-title>正在打开作品集</h1>
+      <p class="viewer-description" data-viewer-description></p>
+      <p class="viewer-count" data-viewer-count></p>
+      <section class="viewer-grid" data-viewer-grid aria-live="polite"></section>
+    </main>
+    <dialog class="viewer-lightbox" data-viewer-lightbox aria-label="作品放大查看">
+      <button class="viewer-lightbox__close" type="button" data-viewer-close aria-label="关闭放大图片">×</button>
+      <button class="viewer-lightbox__nav viewer-lightbox__nav--prev" type="button" data-viewer-prev aria-label="查看上一张">‹</button>
+      <figure><img data-viewer-image alt="" /><figcaption><span data-viewer-caption></span><span data-viewer-index></span></figcaption></figure>
+      <button class="viewer-lightbox__nav viewer-lightbox__nav--next" type="button" data-viewer-next aria-label="查看下一张">›</button>
+    </dialog>
+    <script src="collection-viewer.js?v=20260903"></script>
+  </body>
+</html>
